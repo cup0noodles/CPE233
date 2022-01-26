@@ -28,7 +28,7 @@ module ALU(
     output logic [31:0] RESULT
     );
     
-    logic SLT_inter;
+    logic [31:0] SLT_inter;
 
     always_comb begin
         case (ALU_FUN)
@@ -42,7 +42,7 @@ module ALU(
                 RESULT = A_IN - B_IN;
             end
             
-            4'b0100: begin
+            4'b0110: begin
             //OR
                 RESULT = A_IN | B_IN;
             end
@@ -69,7 +69,7 @@ module ALU(
             
             4'b1101: begin
             //SRA
-                RESULT = A_IN >>> B_IN;
+                RESULT = $signed(A_IN) >>> B_IN;
             end
             
             4'b0010: begin
