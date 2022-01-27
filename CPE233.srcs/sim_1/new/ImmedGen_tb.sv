@@ -5,21 +5,23 @@ module ImmedGen_tb();
     logic [31:0] INS, U, I, S, B, J;
     
     ImmedGen UUT(.INSTRUCT(INS), .U_TYPE(U),
-                 .I_TYPE(S), .B_TYPE(B), 
-                 .J_TYPE(J));
+                 .I_TYPE(I), .B_TYPE(B), 
+                 .J_TYPE(J), .S_TYPE(S));
     
     initial begin
         // U Type Test
-            #10 INS = {'hABCDEF, 1'b0, 7'b0110111};
+                INS = {'hABCDEF, 1'b0, 7'b0110111};
             #10 INS = {'h123456, 1'b0, 7'b0110111};
-        
+            #10;
+            
         //I Type Test
             //13 bits should be ignored
             //Sign Extend 1
             #10 INS = {1'b1, 11'b11001100110, 13'b1111111111111, 7'b0010011};
             //Sign Extend 0
             #10 INS = {1'b0, 11'b11001100110, 13'b1111111111111, 7'b0010011};
-        
+            #10;
+            
         //S Type Test
             //Sign Extend 1
             //Check for 13-bits ignored
@@ -29,7 +31,8 @@ module ImmedGen_tb();
             #10 INS = {1'b0, 6'b010101, 13'b1111111111111, 5'b00000, 7'b0100011};
             //Check for IR[11:7]
             #10 INS = {1'b0, 6'b000000, 13'b1111111111111, 5'b01010, 7'b0100011};
-        
+            #10;
+            
         //B Type Test
             //Sign Extend 0
             //Check for IR[7]
@@ -41,7 +44,8 @@ module ImmedGen_tb();
             #10 INS = {1'b0, 6'b000000, 13'b1111111111111, 4'b1010, 1'b0, 7'b1100011};
             //Sign Extend 1
             #10 INS = {1'b1, 6'b000000, 13'b1111111111111, 4'b0000, 1'b0, 7'b1100011};
-        
+            #10;
+            
         //J Type Test
             //Sign Extend 0
             // 5-bits should be ignored

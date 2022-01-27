@@ -93,7 +93,7 @@ module ALU(
             RESULT = A_IN;
             end
             
-            default RESULT = 0;
+            default RESULT = 32'h00000000;
             
          endcase
     end
