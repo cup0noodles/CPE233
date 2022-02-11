@@ -19,33 +19,14 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-parameter lui   = 7'b0110111;
-parameter auipc = 7'b0010111;
-parameter jal   = 7'b1101111;
-parameter jalr  = 7'b1100111;
-parameter load  = 7'b0000011;
-parameter aluImm = 7'b0010011;
-parameter branch = 7'b1100011;
-parameter store = 7'b0100011;
-parameter alu   = 7'b0110011;
-parameter csr   = 7'b1110011;
-
-
-module CuFSM(
-    input [6:0] opcode,
-    input [2:0] funct3,
-    input clk,
-    input intr,
-    input rst,
-    output pcWrite,
-    output regWrite,
-    output memWE2,
-    output memRDEN1,
-    output memRDEN2,
-    output reset,
-    output csr_WE,
-    output int_taken
-    );
+module CuFSM(opcode, funct3, clk, intr, rst, 
+             pcWrite, regWrite, memWE2, memRDEN1,
+             memRDEN2, reset, csr_WE, int_taken);
+             
+    output logic pcWrite, regWrite, memWE2, memRDEN1, memRDEN2, reset, csr_WE, int_taken;
+    input logic clk, intr, rst; 
+    input logic [2:0] funct3;
+    input logic [6:0] opcode;
     
     typedef enum{ST_INIT, ST_FETCH, ST_EXEC, ST_WB}STATE_type;
     
@@ -53,7 +34,7 @@ module CuFSM(
     
     always_ff @(posedge clk) begin
     
-        if (RST == 1'b1) begin
+        if (rst == 1'b1) begin
             PS <= ST_INIT;
         end
         else begin
@@ -69,7 +50,7 @@ module CuFSM(
         memRDEN1 = 1'b0;
         memRDEN2 = 1'b0;
         reset = 1'b0;
-        csr = 1'b0;
+        csr_WE = 1'b0;
         int_taken = 1'b0;
         
         case (PS)
@@ -79,75 +60,75 @@ module CuFSM(
             end
             
             ST_FETCH: begin
-                RDEN1 = 1'b1;
+                memRDEN1 = 1'b1;
                 NS = ST_EXEC;
             end
             
             ST_EXEC: begin
                 case(opcode)
                     // LUI
-                    lui: begin
+                    7'b0110111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // AUIPC
-                    auipc: begin
+                    7'b0010111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // JAL
-                    jal: begin
+                    7'b1101111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // JALR
-                    jalr: begin
+                    7'b1100111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // Load
-                    load: begin
+                    7'b0000011: begin
                         memRDEN2 = 1'b1;
                         NS = ST_WB;
                     end
                     
                     // ALU Imm
-                    aluImm: begin
+                    7'b0010011: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // Branch
-                    branch: begin
+                    7'b1100011: begin
                         pcWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // Store
-                    store: begin
+                    7'b0100011: begin
                         pcWrite = 1'b1;
                         memWE2 = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     // ALU
-                    alu: begin
+                    7'b0110011: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
                         NS = ST_FETCH;
                     end
                     
                     //CSR
-                    csr: begin
+                    7'b1110011: begin
                         // Unused
                     NS = ST_FETCH;
                     end
