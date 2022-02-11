@@ -24,7 +24,7 @@ module PCMux(pc4, jalr, branch, jal, mtvec, mepc, pc_din, pc_source);
 
     input logic [31:0] pc4, jalr, branch, jal, mtvec, mepc;
     output logic [31:0] pc_din;
-    input logic [3:0] pc_source;
+    input logic [2:0] pc_source;
     
     always_comb begin        
         case (pc_source)

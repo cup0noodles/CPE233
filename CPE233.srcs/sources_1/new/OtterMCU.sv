@@ -42,9 +42,10 @@ module OtterMCU(RST, INTR, IOBUS_IN, clk, IOBUS_WR, IOBUS_OUT, IOBUS_ADDR);
           int_taken, CSR_MIE, intr_fsm, csr_WE;
     
     //Async Control
-    logic rf_wr_sel, alu_srcA, br_eq, br_ltu, br_lt;
+    logic alu_srcA, br_eq, br_ltu, br_lt;
+    logic [3:0] alu_fun;
     logic [2:0] pcSource;
-    logic [1:0] alu_srcB;
+    logic [1:0] alu_srcB, rf_wr_sel;
     
     //Reg
     RegMux RegMux0(.PC4(PC4), .RD(RD), 
