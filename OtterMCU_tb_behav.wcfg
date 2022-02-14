@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="196.901 ns"></ZoomEndTime>
-      <Cursor1Time time="170.000 ns"></Cursor1Time>
+      <ZoomEndTime time="170.000 ns"></ZoomEndTime>
+      <Cursor1Time time="15.831 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="139"></NameColumnWidth>
-      <ValueColumnWidth column_width="101"></ValueColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="10" />
    <wvobject type="logic" fp_name="/OtterMCU_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -29,44 +29,58 @@
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/IR">
-      <obj_property name="ElementShortName">IR[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IR[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject fp_name="divider60" type="divider">
+      <obj_property name="label">PC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#A0A0A4</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/CUFSM0/PS">
       <obj_property name="ElementShortName">PS[31:0]</obj_property>
       <obj_property name="ObjectShortName">PS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider63" type="divider">
+      <obj_property name="label">PS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#A0A0A4</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/IR">
+      <obj_property name="ElementShortName">IR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/result">
       <obj_property name="ElementShortName">result[31:0]</obj_property>
       <obj_property name="ObjectShortName">result[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[5]">
-      <obj_property name="ElementShortName">[5][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[8]">
-      <obj_property name="ElementShortName">[8][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[10]">
-      <obj_property name="ElementShortName">[10][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[10][31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[12]">
-      <obj_property name="ElementShortName">[12][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[12][31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[13]">
-      <obj_property name="ElementShortName">[13][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[13][31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject type="group" fp_name="group64">
+      <obj_property name="label">Reg</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[5]">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[8]">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[10]">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[12]">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/Reg0/register[13]">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/branch">
       <obj_property name="ElementShortName">branch[31:0]</obj_property>
