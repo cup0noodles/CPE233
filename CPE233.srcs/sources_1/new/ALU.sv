@@ -59,26 +59,22 @@ module ALU(
             
             4'b0101: begin
             //SRL
-                RESULT = A_IN >> B_IN; 
+                RESULT = A_IN >> B_IN[4:0]; 
             end
             
             4'b0001: begin
             //SLL
-                RESULT = A_IN << B_IN;
+                RESULT = A_IN << B_IN[4:0];
             end
             
             4'b1101: begin
             //SRA
-                RESULT = $signed(A_IN) >>> B_IN;
+                RESULT = $signed(A_IN) >>> B_IN[4:0];
             end
             
             4'b0010: begin
             //SLT
-                SLT_inter = A_IN - B_IN;
-                if (SLT_inter[31] == 1) begin 
-                    //If A<B; A-B<0, MSB will be 1
-                    RESULT = 1'b1;
-                end
+                if ($signed(A_IN) < $signed(B_IN)) RESULT = 1'b1;
                 else RESULT = 1'b0;
             end
             

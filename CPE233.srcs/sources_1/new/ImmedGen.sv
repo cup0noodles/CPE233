@@ -38,7 +38,7 @@ always_comb begin
               {1'b0}};
     U_TYPE = {{20{INSTRUCT[31:12]}}, {12{1'b0}}};
     J_TYPE = {{12{INSTRUCT[31]}}, {INSTRUCT[19:12]},
-             {2{INSTRUCT[20]}}, INSTRUCT[30:21], 
+             {{INSTRUCT[20]}}, INSTRUCT[30:21], 
              {1'b0}};
 
 end

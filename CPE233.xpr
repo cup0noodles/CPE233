@@ -204,6 +204,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/CPE233HW7/OTTER_Wrapper_v1_02.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Documents/School/W22/CPE223/CPE233HW/CPE233HW7/OTTER_Wrapper_v1_02.sv"/>
+          <Attr Name="ImportTime" Val="1644883100"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="OtterMCU"/>
