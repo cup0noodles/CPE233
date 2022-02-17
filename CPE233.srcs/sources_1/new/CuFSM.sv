@@ -30,7 +30,8 @@ module CuFSM(opcode, funct3, clk, intr, rst,
     
     typedef enum{ST_INIT, ST_FETCH, ST_EXEC, ST_WB}STATE_type;
     
-    STATE_type NS, PS;
+    STATE_type NS;
+    STATE_type PS;
     
     always_ff @(posedge clk) begin
     
@@ -52,6 +53,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
         reset = 1'b0;
         csr_WE = 1'b0;
         int_taken = 1'b0;
+        NS = ST_INIT;
         
         case (PS)
             ST_INIT: begin
@@ -140,6 +142,8 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                 regWrite = 1'b1;
                 NS = ST_FETCH;
             end
+            
+            default: NS = ST_INIT;
             
         endcase
     end

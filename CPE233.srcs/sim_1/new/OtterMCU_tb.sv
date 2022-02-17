@@ -43,5 +43,6 @@ module OtterMCU_tb();
         INTR = 0;
         #10;
         RST = 0;
+        IOBUS_IN = 32'h0000_0000;
     end
 endmodule

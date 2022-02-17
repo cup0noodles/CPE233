@@ -29,7 +29,7 @@ module PCTemp(pc_address, jalr,
     PC_DIN is replaced with PC_DIN_BUS to denote the interconnection */
     output logic [31:0] pc_address, pc4;
     input logic [31:0] jalr, branch, jal, mtvec, mepc;
-    input logic [3:0] pc_source;
+    input logic [2:0] pc_source;
     input logic clk, pc_rst, pc_write;
     logic [31:0] pc_din_bus;
     

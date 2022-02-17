@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="170.000 ns"></ZoomEndTime>
-      <Cursor1Time time="15.831 ns"></Cursor1Time>
+      <ZoomEndTime time="91.401 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="139"></NameColumnWidth>
+      <NameColumnWidth column_width="173"></NameColumnWidth>
       <ValueColumnWidth column_width="96"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="17" />
    <wvobject type="logic" fp_name="/OtterMCU_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -82,12 +82,41 @@
          <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/branch">
-      <obj_property name="ElementShortName">branch[31:0]</obj_property>
-      <obj_property name="ObjectShortName">branch[31:0]</obj_property>
+   <wvobject type="array" fp_name="/OtterMCU_tb/IOBUS_IN">
+      <obj_property name="ElementShortName">IOBUS_IN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IOBUS_IN[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/PCmod/PCMux0/pc_source">
-      <obj_property name="ElementShortName">pc_source[2:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_source[2:0]</obj_property>
+   <wvobject type="array" fp_name="/OtterMCU_tb/IOBUS_OUT">
+      <obj_property name="ElementShortName">IOBUS_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IOBUS_OUT[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/OtterMCU_tb/IOBUS_ADDR">
+      <obj_property name="ElementShortName">IOBUS_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IOBUS_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/OtterMCU_tb/MCU0/CUFSM0/opcode">
+      <obj_property name="ElementShortName">opcode[6:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode[6:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider85" type="divider">
+      <obj_property name="label">IO WR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/OtterMCU_tb/IOBUS_WR">
+      <obj_property name="ElementShortName">IOBUS_WR</obj_property>
+      <obj_property name="ObjectShortName">IOBUS_WR</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/OtterMCU_tb/MCU0/mem0/IO_WR">
+      <obj_property name="ElementShortName">IO_WR</obj_property>
+      <obj_property name="ObjectShortName">IO_WR</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/OtterMCU_tb/MCU0/mem0/MEM_WE2">
+      <obj_property name="ElementShortName">MEM_WE2</obj_property>
+      <obj_property name="ObjectShortName">MEM_WE2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/OtterMCU_tb/MCU0/CUFSM0/memWE2">
+      <obj_property name="ElementShortName">memWE2</obj_property>
+      <obj_property name="ObjectShortName">memWE2</obj_property>
    </wvobject>
 </wave_config>

@@ -45,9 +45,9 @@ module OTTER_Wrapper(
    logic [15:0] r_SSEG;
     
    // Declare OTTER_CPU ////////////////////////////////////////////////////
-   OtterMCU CPU (.CPU_RST(s_reset), .CPU_INTR(1'b0), .CPU_CLK(clk_50),
-                  .CPU_IOBUS_OUT(IOBUS_out), .CPU_IOBUS_IN(IOBUS_in),
-                  .CPU_IOBUS_ADDR(IOBUS_addr), .CPU_IOBUS_WR(IOBUS_wr));
+   OtterMCU CPU (.RST(s_reset), .INTR(1'b0), .clk(clk_50),
+                  .IOBUS_OUT(IOBUS_out), .IOBUS_IN(IOBUS_in),
+                  .IOBUS_ADDR(IOBUS_addr), .IOBUS_WR(IOBUS_wr));
 
    // Declare Seven Segment Display /////////////////////////////////////////
    SevSegDisp SSG_DISP (.DATA_IN(r_SSEG), .CLK(CLK), .MODE(1'b0),
@@ -81,4 +81,4 @@ module OTTER_Wrapper(
             endcase
     end
    
-   endmodule
+endmodule

@@ -112,6 +112,7 @@ module CuDcdr(opcode, funct3, funct30, int_taken, br_eq,
                 alu_srcA = 1'b0; //DC
                 alu_srcB = 2'b00; //DC
                 rf_wr_sel = 2'b00; //DC
+                branchLogic = 1'b0;
                 case(funct3[2:1])
                     2'b00: begin //BEQ/BNE
                         branchLogic = funct3[0] || br_eq;
