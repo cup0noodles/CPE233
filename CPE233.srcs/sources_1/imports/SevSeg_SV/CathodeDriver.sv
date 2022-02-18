@@ -43,6 +43,7 @@ module CathodeDriver(
     
     // Refresh Seven Segment Display every 240 Hz
     always_ff @(posedge s_clk_500) begin
+    //always_ff @(posedge CLK) begin
         case (r_disp_digit)
             2'b00: begin
                 ANODES= 4'b1110;

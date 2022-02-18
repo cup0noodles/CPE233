@@ -34,6 +34,9 @@ module OtterMCU_tb();
                   .IOBUS_ADDR(IOBUS_ADDR));
     always begin
         #5 clk <= !clk;
+        if (IOBUS_ADDR == 32'h1100_0000) begin
+            IOBUS_IN = 32'h0000_0002;
+        end
     end
     
                   

@@ -113,15 +113,24 @@ module CuDcdr(opcode, funct3, funct30, int_taken, br_eq,
                 alu_srcB = 2'b00; //DC
                 rf_wr_sel = 2'b00; //DC
                 branchLogic = 1'b0;
-                case(funct3[2:1])
-                    2'b00: begin //BEQ/BNE
-                        branchLogic = funct3[0] || br_eq;
+                case(funct3[2:0])
+                    3'b000: begin //BEQ
+                        branchLogic = br_eq;
                     end
-                    2'b10:begin //BLT/BGE
-                        branchLogic = funct3[0] || br_lt;
+                    3'b001: begin //BNE
+                        branchLogic = !br_eq;
                     end
-                    2'b11: begin
-                        branchLogic = funct3[0] || br_ltu;
+                    3'b100: begin //BLT
+                        branchLogic = br_lt;
+                    end
+                    3'b101: begin //BGE
+                        branchLogic = !br_lt;
+                    end
+                    3'b110: begin //BLTU
+                        branchLogic = br_ltu;
+                    end
+                    3'b111: begin //BGEU
+                        branchLogic = !br_ltu;
                     end
                 endcase
                 pcSource = {1'b0, branchLogic, 1'b0};
@@ -133,7 +142,7 @@ module CuDcdr(opcode, funct3, funct30, int_taken, br_eq,
                 alu_fun = 4'b0000; //Add
                 pcSource = 3'b000; //PC+4
                 alu_srcA = 1'b0; //RS1
-                alu_srcB = 2'b01; //I Type
+                alu_srcB = 2'b10; //S Type
                 rf_wr_sel = 2'b00; //DC
             end
             

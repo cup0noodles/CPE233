@@ -19,7 +19,7 @@ module OTTER_Wrapper(
    //input BTNL,
    input BTNC,
    input [15:0] SWITCHES,
-   output logic [15:0] LEDS,
+   output logic [15:0] LED,
    output [7:0] CATHODES,
    output [3:0] ANODES
    );
@@ -76,7 +76,7 @@ module OTTER_Wrapper(
     always_ff @ (posedge clk_50) begin
         if(IOBUS_wr)
             case(IOBUS_addr)
-                LEDS_AD: LEDS   <= IOBUS_out[15:0];
+                LEDS_AD: LED   <= IOBUS_out[15:0];
                 SSEG_AD: r_SSEG <= IOBUS_out[15:0];
             endcase
     end
