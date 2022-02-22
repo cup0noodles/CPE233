@@ -38,7 +38,7 @@ module OTTER_Wrapper_tb();
                   
     initial begin
         CLK = 1;
-        SWITCHES = 16'h0004;
+        SWITCHES = 16'h0002;
         #10 BTNC = 1;
         BTNC = 0;
     end

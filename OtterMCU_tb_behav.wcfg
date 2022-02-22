@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2,728.620 ns"></ZoomStartTime>
-      <ZoomEndTime time="3,005.021 ns"></ZoomEndTime>
-      <Cursor1Time time="709.736 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="250.000001 us"></ZoomEndTime>
+      <Cursor1Time time="0.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <ValueColumnWidth column_width="79"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="19" />
    <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CLK">
@@ -135,7 +135,6 @@
    <wvobject type="group" fp_name="group352">
       <obj_property name="label">7Seg</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/CathMod/HEX">
          <obj_property name="ElementShortName">HEX[15:0]</obj_property>
          <obj_property name="ObjectShortName">HEX[15:0]</obj_property>
