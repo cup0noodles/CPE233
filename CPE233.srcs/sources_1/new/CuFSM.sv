@@ -28,7 +28,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
     input logic [2:0] funct3;
     input logic [6:0] opcode;
     
-    typedef enum{ST_INIT, ST_FETCH, ST_EXEC, ST_WB}STATE_type;
+    typedef enum{ST_INIT, ST_FETCH, ST_EXEC, ST_WB, ST_INTR}STATE_type;
     
     STATE_type NS;
     STATE_type PS;
@@ -67,33 +67,38 @@ module CuFSM(opcode, funct3, clk, intr, rst,
             end
             
             ST_EXEC: begin
+
                 case(opcode)
                     // LUI
                     7'b0110111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // AUIPC
                     7'b0010111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // JAL
                     7'b1101111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // JALR
                     7'b1100111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // Load
@@ -106,33 +111,40 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b0010011: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // Branch
                     7'b1100011: begin
                         pcWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // Store
                     7'b0100011: begin
                         pcWrite = 1'b1;
                         memWE2 = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
                     // ALU
                     7'b0110011: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        NS = ST_FETCH;
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                     
-                    //CSR
+                    //CSR - Unfinished
                     7'b1110011: begin
-                        // Unused
-                    NS = ST_FETCH;
+                        pcWrite = !funct3[0];
+                        regWrite = funct3[0];
+                        csr_WE = funct3[0];
+                        if (int_taken) NS = ST_INTR;
+                        else NS = ST_FETCH;
                     end
                 endcase
             end
@@ -140,9 +152,15 @@ module CuFSM(opcode, funct3, clk, intr, rst,
             ST_WB: begin
                 pcWrite = 1'b1;
                 regWrite = 1'b1;
-                NS = ST_FETCH;
+                if (int_taken) NS = ST_INTR;
+                else NS = ST_FETCH;
             end
             
+            ST_INTR: begin
+                pcWrite = 1'b1;
+                int_taken = 1'b1;
+                NS = ST_FETCH;
+            end
             default: NS = ST_INIT;
             
         endcase

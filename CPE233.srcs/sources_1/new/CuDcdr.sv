@@ -37,6 +37,15 @@ module CuDcdr(opcode, funct3, funct30, int_taken, br_eq,
     logic branchLogic;
     
     always_comb begin
+    //When INTR occurs
+    if (int_taken) begin
+        alu_fun = 4'b0000; //DC
+        pcSource = 3'b100; //MTVEC
+        alu_srcA = 1'b0; //DC
+        alu_srcB = 2'b00; //DC
+        rf_wr_sel = 2'b00; //DC
+    end
+    else
     //Case by opcode
         case(opcode)
             
@@ -157,11 +166,12 @@ module CuDcdr(opcode, funct3, funct30, int_taken, br_eq,
             
             // CSR - Unused
             7'b1110011: begin
-                alu_fun = 4'b0000;
-                pcSource = 3'b000;
-                alu_srcA = 1'b0;
-                alu_srcB = 2'b00;
-                rf_wr_sel = 2'b00;
+                alu_fun = 4'b0000; //DC
+                alu_srcA = 1'b0; //DC
+                alu_srcB = 2'b00; //DC
+                rf_wr_sel = 2'b01; //CSR_RD
+                if (funct3) pc_source = 3'b000; //CSRRW - PC+4
+                else pc_source = 3'b101; //MRET - MEPC
             end
         
         default: begin
