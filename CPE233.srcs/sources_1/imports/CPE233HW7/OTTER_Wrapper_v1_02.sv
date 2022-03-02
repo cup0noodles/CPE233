@@ -16,7 +16,7 @@
 
 module OTTER_Wrapper(
    input CLK,
-   //input BTNL,
+   input BTNL,
    input BTNC,
    input [15:0] SWITCHES,
    output logic [15:0] LED,
@@ -39,13 +39,13 @@ module OTTER_Wrapper(
    logic clk_50 = 0;
     
    logic [31:0] IOBUS_out, IOBUS_in, IOBUS_addr;
-   logic s_reset, IOBUS_wr;
+   logic s_reset, s_intr, IOBUS_wr;
    
    // Registers for buffering outputs  /////////////////////////////////////
    logic [15:0] r_SSEG;
     
    // Declare OTTER_CPU ////////////////////////////////////////////////////
-   OtterMCU CPU (.RST(s_reset), .INTR(1'b0), .clk(clk_50),
+   OtterMCU CPU (.RST(s_reset), .INTR(s_intr), .clk(clk_50),
                   .IOBUS_OUT(IOBUS_out), .IOBUS_IN(IOBUS_in),
                   .IOBUS_ADDR(IOBUS_addr), .IOBUS_WR(IOBUS_wr));
 
@@ -60,8 +60,14 @@ module OTTER_Wrapper(
    end
    
    // Connect Signals ///////////////////////////////////////////////////////
-   assign s_reset = BTNC;
+   logic BTNC_DB;
+   debounce_one_shot BTNCFilter(.CLK(clk_50), .BTN(BTNC), .DB_BTN(BTNC_DB));
+   assign s_reset = BTNC_DB;
    
+   logic BTNL_DB;
+   debounce_one_shot BTNLFilter(.CLK(clk_50), .BTN(BTNL), .DB_BTN(BTNL_DB));
+   assign s_intr = BTNL_DB;
+   //assign s_intr = BTNL;
    
    // Connect Board input peripherals (Memory Mapped IO devices) to IOBUS
    always_comb begin

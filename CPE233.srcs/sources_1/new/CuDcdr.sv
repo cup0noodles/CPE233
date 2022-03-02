@@ -164,14 +164,14 @@ module CuDcdr(opcode, funct3, funct30, int_taken, br_eq,
                 rf_wr_sel = 2'b11; // ALU Result
             end
             
-            // CSR - Unused
+            // CSR
             7'b1110011: begin
                 alu_fun = 4'b0000; //DC
                 alu_srcA = 1'b0; //DC
                 alu_srcB = 2'b00; //DC
                 rf_wr_sel = 2'b01; //CSR_RD
-                if (funct3) pc_source = 3'b000; //CSRRW - PC+4
-                else pc_source = 3'b101; //MRET - MEPC
+                if (funct3 == 3'b000) pcSource = 3'b101; //MRET - MEPC
+                else pcSource = 3'b000; //CSRRW - PC+4
             end
         
         default: begin

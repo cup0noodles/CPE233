@@ -73,7 +73,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b0110111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
@@ -81,7 +81,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b0010111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
@@ -89,7 +89,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b1101111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
@@ -97,7 +97,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b1100111: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
@@ -111,14 +111,14 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b0010011: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
                     // Branch
                     7'b1100011: begin
                         pcWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
@@ -126,7 +126,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b0100011: begin
                         pcWrite = 1'b1;
                         memWE2 = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
@@ -134,16 +134,16 @@ module CuFSM(opcode, funct3, clk, intr, rst,
                     7'b0110011: begin
                         pcWrite = 1'b1;
                         regWrite = 1'b1;
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                     
                     //CSR - Unfinished
                     7'b1110011: begin
-                        pcWrite = !funct3[0];
+                        pcWrite = 1'b1;
                         regWrite = funct3[0];
                         csr_WE = funct3[0];
-                        if (int_taken) NS = ST_INTR;
+                        if (intr) NS = ST_INTR;
                         else NS = ST_FETCH;
                     end
                 endcase
@@ -152,7 +152,7 @@ module CuFSM(opcode, funct3, clk, intr, rst,
             ST_WB: begin
                 pcWrite = 1'b1;
                 regWrite = 1'b1;
-                if (int_taken) NS = ST_INTR;
+                if (intr) NS = ST_INTR;
                 else NS = ST_FETCH;
             end
             

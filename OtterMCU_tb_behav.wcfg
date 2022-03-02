@@ -6,31 +6,32 @@
       <db_ref path="OTTER_Wrapper_tb_behav.wdb" id="1">
          <top_modules>
             <top_module name="OTTER_Wrapper_tb" />
+            <top_module name="\$unit_ALU_sv " />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="250.000001 us"></ZoomEndTime>
-      <Cursor1Time time="0.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="982.501 ns"></ZoomEndTime>
+      <Cursor1Time time="66.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+      <ValueColumnWidth column_width="71"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="18" />
    <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OTTER_Wrapper_tb/SWITCHES">
-      <obj_property name="ElementShortName">SWITCHES[15:0]</obj_property>
-      <obj_property name="ObjectShortName">SWITCHES[15:0]</obj_property>
+   <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/INTR">
+      <obj_property name="ElementShortName">INTR</obj_property>
+      <obj_property name="ObjectShortName">INTR</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/LED">
-      <obj_property name="ElementShortName">LED[15:0]</obj_property>
-      <obj_property name="ObjectShortName">LED[15:0]</obj_property>
+   <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/RST">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/PCmod/PCReg0/pc_address">
       <obj_property name="ElementShortName">pc_address[31:0]</obj_property>
@@ -40,21 +41,77 @@
       <obj_property name="ElementShortName">PS[31:0]</obj_property>
       <obj_property name="ObjectShortName">PS[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_out">
-      <obj_property name="ElementShortName">IOBUS_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IOBUS_out[31:0]</obj_property>
+   <wvobject fp_name="divider142" type="divider">
+      <obj_property name="label">IO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_addr">
-      <obj_property name="ElementShortName">IOBUS_addr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IOBUS_addr[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_in">
-      <obj_property name="ElementShortName">IOBUS_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">IOBUS_in[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_wr">
-      <obj_property name="ElementShortName">IOBUS_wr</obj_property>
-      <obj_property name="ObjectShortName">IOBUS_wr</obj_property>
+   <wvobject type="group" fp_name="group55">
+      <obj_property name="label">IO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/SWITCHES">
+         <obj_property name="ElementShortName">SWITCHES[15:0]</obj_property>
+         <obj_property name="ObjectShortName">SWITCHES[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/LED">
+         <obj_property name="ElementShortName">LED[15:0]</obj_property>
+         <obj_property name="ObjectShortName">LED[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/BTNL">
+         <obj_property name="ElementShortName">BTNL</obj_property>
+         <obj_property name="ObjectShortName">BTNL</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/BTNC">
+         <obj_property name="ElementShortName">BTNC</obj_property>
+         <obj_property name="ObjectShortName">BTNC</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_out">
+         <obj_property name="ElementShortName">IOBUS_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IOBUS_out[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_in">
+         <obj_property name="ElementShortName">IOBUS_in[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IOBUS_in[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_wr">
+         <obj_property name="ElementShortName">IOBUS_wr</obj_property>
+         <obj_property name="ObjectShortName">IOBUS_wr</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_addr">
+         <obj_property name="ElementShortName">IOBUS_addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IOBUS_addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="divider351" type="divider">
+         <obj_property name="label">7Seg</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="group352">
+         <obj_property name="label">7Seg</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/CathMod/HEX">
+            <obj_property name="ElementShortName">HEX[15:0]</obj_property>
+            <obj_property name="ObjectShortName">HEX[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/Hex_Val">
+            <obj_property name="ElementShortName">Hex_Val[15:0]</obj_property>
+            <obj_property name="ObjectShortName">Hex_Val[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/DATA_IN">
+            <obj_property name="ElementShortName">DATA_IN[15:0]</obj_property>
+            <obj_property name="ObjectShortName">DATA_IN[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/BCD_Val">
+            <obj_property name="ElementShortName">BCD_Val[15:0]</obj_property>
+            <obj_property name="ObjectShortName">BCD_Val[15:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/ANODES">
+            <obj_property name="ElementShortName">ANODES[3:0]</obj_property>
+            <obj_property name="ObjectShortName">ANODES[3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/CATHODES">
+            <obj_property name="ElementShortName">CATHODES[7:0]</obj_property>
+            <obj_property name="ObjectShortName">CATHODES[7:0]</obj_property>
+         </wvobject>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/Reg0/register">
       <obj_property name="ElementShortName">register[31:0][31:0]</obj_property>
@@ -128,38 +185,6 @@
       <obj_property name="ElementShortName">RESULT[31:0]</obj_property>
       <obj_property name="ObjectShortName">RESULT[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="divider351" type="divider">
-      <obj_property name="label">7Seg</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject type="group" fp_name="group352">
-      <obj_property name="label">7Seg</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/CathMod/HEX">
-         <obj_property name="ElementShortName">HEX[15:0]</obj_property>
-         <obj_property name="ObjectShortName">HEX[15:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/Hex_Val">
-         <obj_property name="ElementShortName">Hex_Val[15:0]</obj_property>
-         <obj_property name="ObjectShortName">Hex_Val[15:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/DATA_IN">
-         <obj_property name="ElementShortName">DATA_IN[15:0]</obj_property>
-         <obj_property name="ObjectShortName">DATA_IN[15:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/BCD_Val">
-         <obj_property name="ElementShortName">BCD_Val[15:0]</obj_property>
-         <obj_property name="ObjectShortName">BCD_Val[15:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/ANODES">
-         <obj_property name="ElementShortName">ANODES[3:0]</obj_property>
-         <obj_property name="ObjectShortName">ANODES[3:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/SSG_DISP/CATHODES">
-         <obj_property name="ElementShortName">CATHODES[7:0]</obj_property>
-         <obj_property name="ObjectShortName">CATHODES[7:0]</obj_property>
-      </wvobject>
-   </wvobject>
    <wvobject fp_name="divider507" type="divider">
       <obj_property name="label">BCD Gen</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -189,13 +214,12 @@
       </wvobject>
    </wvobject>
    <wvobject fp_name="divider589" type="divider">
-      <obj_property name="label">CUDCDR</obj_property>
+      <obj_property name="label">CU</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group590">
-      <obj_property name="label">CUDCDR</obj_property>
+      <obj_property name="label">DCDR</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CUDCDR0/alu_fun">
          <obj_property name="ElementShortName">alu_fun[3:0]</obj_property>
          <obj_property name="ObjectShortName">alu_fun[3:0]</obj_property>
@@ -227,6 +251,88 @@
       <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CUDCDR0/br_lt">
          <obj_property name="ElementShortName">br_lt</obj_property>
          <obj_property name="ObjectShortName">br_lt</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group143">
+      <obj_property name="label">FSM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CUFSM0/pcWrite">
+         <obj_property name="ElementShortName">pcWrite</obj_property>
+         <obj_property name="ObjectShortName">pcWrite</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CUFSM0/intr">
+         <obj_property name="ElementShortName">intr</obj_property>
+         <obj_property name="ObjectShortName">intr</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider54" type="divider">
+      <obj_property name="label">CSR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group53">
+      <obj_property name="label">CSR</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="group" fp_name="group101">
+         <obj_property name="label">Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/reset">
+            <obj_property name="ElementShortName">reset</obj_property>
+            <obj_property name="ObjectShortName">reset</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/int_taken">
+            <obj_property name="ElementShortName">int_taken</obj_property>
+            <obj_property name="ObjectShortName">int_taken</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/WR_EN">
+            <obj_property name="ElementShortName">WR_EN</obj_property>
+            <obj_property name="ObjectShortName">WR_EN</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/clk">
+            <obj_property name="ElementShortName">clk</obj_property>
+            <obj_property name="ObjectShortName">clk</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/ADDR">
+            <obj_property name="ElementShortName">ADDR[11:0]</obj_property>
+            <obj_property name="ObjectShortName">ADDR[11:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/PC">
+            <obj_property name="ElementShortName">PC[31:0]</obj_property>
+            <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/WD">
+            <obj_property name="ElementShortName">WD[31:0]</obj_property>
+            <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/register">
+         <obj_property name="ElementShortName">register[2:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">register[2:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="group102">
+         <obj_property name="label">Outputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/CSR_MIE">
+            <obj_property name="ElementShortName">CSR_MIE</obj_property>
+            <obj_property name="ObjectShortName">CSR_MIE</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/CSR_MEPC">
+            <obj_property name="ElementShortName">CSR_MEPC[31:0]</obj_property>
+            <obj_property name="ObjectShortName">CSR_MEPC[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/CSR_MTVEC">
+            <obj_property name="ElementShortName">CSR_MTVEC[31:0]</obj_property>
+            <obj_property name="ObjectShortName">CSR_MTVEC[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/RD">
+            <obj_property name="ElementShortName">RD[31:0]</obj_property>
+            <obj_property name="ObjectShortName">RD[31:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CSR0/wr_addr">
+            <obj_property name="ElementShortName">wr_addr[1:0]</obj_property>
+            <obj_property name="ObjectShortName">wr_addr[1:0]</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
 </wave_config>

@@ -22,14 +22,14 @@
 
 module OTTER_Wrapper_tb();
    logic CLK;
-   //input BTNL,
+   logic BTNL;
    logic BTNC;
    logic [15:0] SWITCHES;
    logic [15:0] LED;
    logic [7:0] CATHODES;
    logic [3:0] ANODES;
    
-   OTTER_Wrapper UUT(.CLK(CLK), .BTNC(BTNC), .SWITCHES(SWITCHES), .LED(LEDS), .CATHODES(CATHODES), .ANODES(ANODES));
+   OTTER_Wrapper UUT(.CLK(CLK), .BTNC(BTNC), .BTNL(BTNL), .SWITCHES(SWITCHES), .LED(LEDS), .CATHODES(CATHODES), .ANODES(ANODES));
    
    always begin
         #5 CLK <= !CLK;
@@ -39,7 +39,10 @@ module OTTER_Wrapper_tb();
     initial begin
         CLK = 1;
         SWITCHES = 16'h0002;
+        BTNL = 0;
         #10 BTNC = 1;
         BTNC = 0;
+        #500 BTNL = 1;
+        #200 BTNL = 0;
     end
 endmodule
