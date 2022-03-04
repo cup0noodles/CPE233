@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="982.501 ns"></ZoomEndTime>
-      <Cursor1Time time="66.500 ns"></Cursor1Time>
+      <ZoomStartTime time="417.083 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,116.584 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="71"></ValueColumnWidth>
+      <ValueColumnWidth column_width="67"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="20" />
    <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
@@ -48,6 +48,7 @@
    <wvobject type="group" fp_name="group55">
       <obj_property name="label">IO</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/OTTER_Wrapper_tb/SWITCHES">
          <obj_property name="ElementShortName">SWITCHES[15:0]</obj_property>
          <obj_property name="ObjectShortName">SWITCHES[15:0]</obj_property>
@@ -256,7 +257,6 @@
    <wvobject type="group" fp_name="group143">
       <obj_property name="label">FSM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CPU/CUFSM0/pcWrite">
          <obj_property name="ElementShortName">pcWrite</obj_property>
          <obj_property name="ObjectShortName">pcWrite</obj_property>
@@ -273,7 +273,6 @@
    <wvobject type="group" fp_name="group53">
       <obj_property name="label">CSR</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="group" fp_name="group101">
          <obj_property name="label">Inputs</obj_property>
          <obj_property name="DisplayName">label</obj_property>
@@ -333,6 +332,51 @@
             <obj_property name="ElementShortName">wr_addr[1:0]</obj_property>
             <obj_property name="ObjectShortName">wr_addr[1:0]</obj_property>
          </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider79" type="divider">
+      <obj_property name="label">VGA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group80">
+      <obj_property name="label">VGA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/VGA/WA">
+         <obj_property name="ElementShortName">WA[12:0]</obj_property>
+         <obj_property name="ObjectShortName">WA[12:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/VGA/WD">
+         <obj_property name="ElementShortName">WD[7:0]</obj_property>
+         <obj_property name="ObjectShortName">WD[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/VGA/WE">
+         <obj_property name="ElementShortName">WE</obj_property>
+         <obj_property name="ObjectShortName">WE</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/VGA/RD">
+         <obj_property name="ElementShortName">RD[7:0]</obj_property>
+         <obj_property name="ObjectShortName">RD[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/VGA/ROUT">
+         <obj_property name="ElementShortName">ROUT[2:0]</obj_property>
+         <obj_property name="ObjectShortName">ROUT[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/VGA/GOUT">
+         <obj_property name="ElementShortName">GOUT[2:0]</obj_property>
+         <obj_property name="ObjectShortName">GOUT[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/VGA/BOUT">
+         <obj_property name="ElementShortName">BOUT[1:0]</obj_property>
+         <obj_property name="ObjectShortName">BOUT[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/VGA/HS">
+         <obj_property name="ElementShortName">HS</obj_property>
+         <obj_property name="ObjectShortName">HS</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/VGA/VS">
+         <obj_property name="ElementShortName">VS</obj_property>
+         <obj_property name="ObjectShortName">VS</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
