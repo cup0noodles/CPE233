@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="417.083 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,116.584 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="140.300000001 ms"></ZoomEndTime>
+      <Cursor1Time time="20.617800000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="67"></ValueColumnWidth>
+      <NameColumnWidth column_width="170"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="20" />
    <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/CLK">
@@ -57,13 +57,21 @@
          <obj_property name="ElementShortName">LED[15:0]</obj_property>
          <obj_property name="ObjectShortName">LED[15:0]</obj_property>
       </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/BTNC">
+         <obj_property name="ElementShortName">BTNC</obj_property>
+         <obj_property name="ObjectShortName">BTNC</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/BTNR">
+         <obj_property name="ElementShortName">BTNR</obj_property>
+         <obj_property name="ObjectShortName">BTNR</obj_property>
+      </wvobject>
       <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/BTNL">
          <obj_property name="ElementShortName">BTNL</obj_property>
          <obj_property name="ObjectShortName">BTNL</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/UUT/BTNC">
-         <obj_property name="ElementShortName">BTNC</obj_property>
-         <obj_property name="ObjectShortName">BTNC</obj_property>
+      <wvobject type="logic" fp_name="/OTTER_Wrapper_tb/BTNU">
+         <obj_property name="ElementShortName">BTNU</obj_property>
+         <obj_property name="ObjectShortName">BTNU</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/OTTER_Wrapper_tb/UUT/IOBUS_out">
          <obj_property name="ElementShortName">IOBUS_out[31:0]</obj_property>

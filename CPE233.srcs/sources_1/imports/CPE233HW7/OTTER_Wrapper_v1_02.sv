@@ -17,6 +17,8 @@
 module OTTER_Wrapper(
    input CLK,
    input BTNL,
+   input BTNR,
+   input BTNU,
    input BTNC,
    input [15:0] SWITCHES,
    output logic [15:0] LED,
@@ -33,6 +35,7 @@ module OTTER_Wrapper(
     // to add constants here for the mux below
     localparam SWITCHES_AD = 32'h11000000;
     localparam VGA_READ_AD = 32'h11000160;
+    localparam BTN_READ_AD = 32'h11000060;
            
     // OUTPUT PORT IDS //////////////////////////////////////////////////////
     // In future labs you can add more MMIO
@@ -65,8 +68,7 @@ module OTTER_Wrapper(
    logic [12:0] r_vga_wa;      // address of framebuffer to read and write
    logic [7:0] r_vga_wd;       // pixel color data to write to framebuffer
    logic [7:0] r_vga_rd;       // pixel color data read from framebuffer
- 
-   //logic [15:0]  r_SSEG;
+
    
       // Declare VGA Frame Buffer //////////////////////////////////////////////
    vga_fb_driver_80x60 VGA(.CLK_50MHz(clk_50), .WA(r_vga_wa), .WD(r_vga_wd),
@@ -85,15 +87,20 @@ module OTTER_Wrapper(
    assign s_reset = BTNC_DB;
    
    logic BTNL_DB;
-   debounce_one_shot BTNLFilter(.CLK(clk_50), .BTN(BTNL), .DB_BTN(BTNL_DB));
-   assign s_intr = BTNL_DB;
+   debounce_hold BTNLFilter(.CLK(clk_50), .BTN(BTNL), .DB_BTN(BTNL_DB));
+   //assign s_intr = BTNL_DB;
    //assign s_intr = BTNL;
+   logic BTNR_DB;
+   debounce_hold BTNRFilter(.CLK(clk_50), .BTN(BTNR), .DB_BTN(BTNR_DB));
+   logic BTNU_DB;
+   debounce_hold BTNUFilter(.CLK(clk_50), .BTN(BTNU), .DB_BTN(BTNU_DB));
    
    // Connect Board input peripherals (Memory Mapped IO devices) to IOBUS
    always_comb begin
         case(IOBUS_addr)
             SWITCHES_AD: IOBUS_in = {16'b0,SWITCHES};
             VGA_READ_AD: IOBUS_in = {24'b0, r_vga_rd};
+            BTN_READ_AD: IOBUS_in = {29'b0, BTNR_DB, BTNL_DB, BTNU_DB};
             default:     IOBUS_in = 32'b0;    // default bus input to 0
         endcase
     end
