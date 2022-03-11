@@ -342,7 +342,11 @@
       <File Path="$PSRCDIR/sources_1/imports/Source/CharVelocity.mem">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../Documents/School/W22/CPE223/FinalProj/Source/CharVelocity.mem"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1646984701"/>
+=======
+          <Attr Name="ImportTime" Val="1647008032"/>
+>>>>>>> bbdff2c14264f2c178ec897a2f3fcb64f425e553
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
