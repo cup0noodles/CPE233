@@ -108,6 +108,7 @@ module OTTER_Wrapper(
    
    // Connect Board output peripherals (Memory Mapped IO devices) to IOBUS
     always_ff @ (posedge clk_50) begin
+        r_vga_we <= 0;
         if(IOBUS_wr)
             case(IOBUS_addr)
                 LEDS_AD: LED   <= IOBUS_out[15:0];
