@@ -334,7 +334,7 @@
       <File Path="$PSRCDIR/sources_1/imports/OTTER_VGA_80x60/vga80x60_demo.mem">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../Documents/School/W22/CPE223/OTTER_VGA_80x60/vga80x60_demo.mem"/>
-          <Attr Name="ImportTime" Val="1646979384"/>
+          <Attr Name="ImportTime" Val="1646956120"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -342,11 +342,23 @@
       <File Path="$PSRCDIR/sources_1/imports/Source/CharVelocity.mem">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../Documents/School/W22/CPE223/FinalProj/Source/CharVelocity.mem"/>
-<<<<<<< HEAD
-          <Attr Name="ImportTime" Val="1646984701"/>
-=======
           <Attr Name="ImportTime" Val="1647008032"/>
->>>>>>> bbdff2c14264f2c178ec897a2f3fcb64f425e553
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Source/PolyPlatformers_Beta.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Documents/School/W22/CPE223/FinalProj/Source/PolyPlatformers_Beta.mem"/>
+          <Attr Name="ImportTime" Val="1647036616"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Source/PolyPlatformers.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Documents/School/W22/CPE223/FinalProj/Source/PolyPlatformers.mem"/>
+          <Attr Name="ImportTime" Val="1647036845"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
